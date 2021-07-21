@@ -18,7 +18,7 @@ body {
   height: 90vh;
   z-index: -1;
   position: absolute;
-  bottom: 1em;
+  top: 5.5em;
 }
 
 .app {
@@ -153,6 +153,7 @@ body {
     z-index: 1;
     position: relative;
     bottom: 6.5em;
+    top: -6.5em;
   }
   
 }

@@ -11,7 +11,7 @@ const Tracker = () => {
     const [timezone, setTimezone] = useState('');
     const [isp, setIsp] = useState('');
     const [center, setCenter] = useState({ lat: null, lng: null });
-    const ZOOM_LEVEL = 9;
+    const ZOOM_LEVEL = 2;
     const mapRef = useRef();
     // fetch request states
     const [isTracking, setIsTracking] = useState(true);
@@ -32,20 +32,12 @@ const Tracker = () => {
                     return res.json()
                 })
                 .then((data) => {
-                    const { ip } = data;
-                    const { location: { country } } = data;
-                    const { location: { timezone } } = data;
-                    const { isp } = data;
-                    const { location: { lat: latitude } } = data;
-                    const { location: { lng: longitude } } = data;
-                    console.log(latitude, longitude)
-
+                    const { ip, isp, location: { country, timezone, lat: latitude, lng: longitude }, } = data;
                     setIp(ip);
                     setLocation(country);
                     setTimezone(timezone);
                     setIsp(isp);
                     setCenter({ lat: latitude, lng: longitude });
-
                     setIsTracking(null);
                     setData(true);
                     setError(null);
@@ -60,7 +52,6 @@ const Tracker = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         setIsTracking(true);
-        //setError(null);
         tracker.fetchAddress(e.target.value);
     }
     const handleEnter = (e) => {
