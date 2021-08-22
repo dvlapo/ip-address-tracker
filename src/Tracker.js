@@ -19,7 +19,7 @@ const Tracker = () => {
     const [error, setError] = useState(null);
 
     const tracker = {
-        apiKey: 'at_QYweX3H4575qmegOapHTs3EQmcs4s',
+        apiKey: 'at_QmraYd4ZpqUnUtsIQtpIGFkEA4IUd',
 
         fetchAddress: function (ip) {
             fetch('https://geo.ipify.org/api/v1?apiKey=' + this.apiKey
